@@ -1,0 +1,79 @@
+---
+description: Impeccable code standards for this React + TypeScript + Zustand project
+alwaysApply: true
+---
+
+# Impeccable Code Standards
+
+## TypeScript
+
+- Prefer explicit return types on all exported functions and hooks
+- Never use `any`; use `unknown` and narrow, or define a proper type/interface
+- Use `type` for unions/intersections, `interface` for object shapes
+- Always destructure props inline; never accept a single `props` object without destructuring
+
+```typescript
+// ❌
+function foo(props: any) { return props.value }
+
+// ✅
+function foo({ value }: { value: string }): string { return value }
+```
+
+## React Components
+
+- Functional components only; no class components
+- One component per file; filename matches the exported component name
+- Extract logic into custom hooks (`use*.ts`) when a component exceeds ~80 lines or logic is reusable
+- Never inline complex JSX — break it into named sub-components or variables
+- Keep `useEffect` minimal; prefer derived state and memoization over effects
+
+```tsx
+// ❌ — logic and markup tangled together
+export default function Panel() {
+  const [data, setData] = useState([])
+  useEffect(() => { fetch('/api').then(r => r.json()).then(setData) }, [])
+  return <ul>{data.map(d => <li key={d.id}>{d.name}</li>)}</ul>
+}
+
+// ✅
+export default function Panel() {
+  const data = useData()
+  return <DataList items={data} />
+}
+```
+
+## Zustand State (resumeStore)
+
+- Access only the slices you need — never select the entire store object
+- Derive values inside selectors, not inside components
+- Mutations belong in the store's actions, never inline in components
+
+```typescript
+// ❌
+const store = useResumeStore()
+const name = store.resume.contact.name
+
+// ✅
+const name = useResumeStore(s => s.resume.contact.name)
+```
+
+## Performance
+
+- Wrap expensive computations in `useMemo`; wrap stable callbacks passed to children in `useCallback`
+- Avoid creating objects/arrays as default prop values or in render scope — define them outside or memoize
+- Prefer CSS/Tailwind transitions over JS-driven animations for UI feedback
+
+## Code Style & Naming
+
+- Components: `PascalCase`
+- Hooks, utilities, variables: `camelCase`
+- Types/interfaces: `PascalCase`
+- Constants: `SCREAMING_SNAKE_CASE` only for true module-level constants
+- Boolean props/variables: prefix with `is`, `has`, or `can` (e.g. `isOpen`, `hasError`)
+
+## Comments
+
+- No comments that restate what the code does
+- Only comment to explain **why** something non-obvious was done, or to document a constraint/trade-off
+- Remove all TODO/FIXME comments before considering a task complete
