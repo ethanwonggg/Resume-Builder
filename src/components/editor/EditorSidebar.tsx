@@ -5,15 +5,25 @@ import ProjectEditor from './ProjectEditor'
 import EducationEditor from './EducationEditor'
 import SkillsEditor from './SkillsEditor'
 import DesignEditor from './DesignEditor'
+import AIImportEditor from './AIImportEditor'
 import AnalysisPanel from '@/components/panels/AnalysisPanel'
 import RecruiterPanel from '@/components/panels/RecruiterPanel'
 import { clsx } from 'clsx'
 import {
   User, Briefcase, Code2, GraduationCap, Wrench,
-  Palette, BarChart3, Eye,
+  Palette, BarChart3, Eye, Sparkles,
 } from 'lucide-react'
 
-type Tab = 'contact' | 'experience' | 'projects' | 'education' | 'skills' | 'design' | 'analysis' | 'recruiter'
+type Tab =
+  | 'contact'
+  | 'experience'
+  | 'projects'
+  | 'education'
+  | 'skills'
+  | 'design'
+  | 'analysis'
+  | 'recruiter'
+  | 'import'
 
 interface TabConfig {
   id: Tab
@@ -29,6 +39,7 @@ const TABS: TabConfig[] = [
   { id: 'skills',     label: 'Skills',     icon: <Wrench size={14} /> },
   { id: 'design',     label: 'Design',     icon: <Palette size={14} /> },
   { id: 'analysis',   label: 'Analysis',   icon: <BarChart3 size={14} /> },
+  { id: 'import',     label: 'AI Import',  icon: <Sparkles size={14} /> },
   { id: 'recruiter',  label: 'Recruiter',  icon: <Eye size={14} /> },
 ]
 
@@ -72,6 +83,7 @@ export default function EditorSidebar() {
         {activeTab === 'skills'     && <SkillsEditor />}
         {activeTab === 'design'     && <DesignEditor />}
         {activeTab === 'analysis'   && <AnalysisPanel />}
+        {activeTab === 'import'     && <AIImportEditor />}
         {activeTab === 'recruiter'  && <RecruiterPanel />}
       </div>
     </div>

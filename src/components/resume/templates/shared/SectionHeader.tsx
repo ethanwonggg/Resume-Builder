@@ -10,7 +10,7 @@ export default function SectionHeader({ label, template }: SectionHeaderProps) {
 
   if (style === 'uppercase-border') {
     return (
-      <div style={{ marginBottom: '4px' }}>
+      <div style={{ margin: '18px 0 8px' }}>
         <div style={{
           fontSize: '12pt',
           fontWeight: '700',
@@ -18,7 +18,7 @@ export default function SectionHeader({ label, template }: SectionHeaderProps) {
           color: template.sectionHeaderColor,
           textTransform: 'uppercase',
           borderBottom: `1.5px solid ${template.dividerColor}`,
-          paddingBottom: '2px',
+          paddingBottom: '5px',
           marginBottom: '4px',
         }}>
           {label}
@@ -29,13 +29,13 @@ export default function SectionHeader({ label, template }: SectionHeaderProps) {
 
   if (style === 'bold-line') {
     return (
-      <div style={{ marginBottom: '5px' }}>
+      <div style={{ margin: '16px 0 8px' }}>
         <div style={{
           fontSize: '12pt',
           fontWeight: '700',
           letterSpacing: '0.03em',
           color: template.sectionHeaderColor,
-          paddingBottom: '3px',
+          paddingBottom: '5px',
           borderBottom: `1px solid ${template.dividerColor}`,
         }}>
           {label}
@@ -45,7 +45,7 @@ export default function SectionHeader({ label, template }: SectionHeaderProps) {
   }
 
   return (
-    <div style={{ marginBottom: '4px' }}>
+    <div style={{ margin: '16px 0 7px' }}>
       <div style={{
         fontSize: '12pt',
         fontWeight: '700',
@@ -53,7 +53,7 @@ export default function SectionHeader({ label, template }: SectionHeaderProps) {
         color: template.sectionHeaderColor,
         fontVariant: 'small-caps',
         borderBottom: `1px solid ${template.dividerColor}`,
-        paddingBottom: '2px',
+          paddingBottom: '5px',
       }}>
         {label}
       </div>

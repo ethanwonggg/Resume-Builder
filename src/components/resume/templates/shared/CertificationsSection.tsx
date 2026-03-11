@@ -13,7 +13,7 @@ export default function CertificationsSection({ entries, template, settings }: C
   if (entries.length === 0) return null
 
   return (
-    <div style={{ marginBottom: '8px' }}>
+    <div style={{ margin: '10px 0 8px' }}>
       <SectionHeader label={ATS_SECTION_LABELS.certifications} template={template} />
       {entries.map(cert => (
         <div key={cert.id} style={{ display: 'flex', justifyContent: 'space-between', fontSize: `${settings.fontSize}pt` }}>

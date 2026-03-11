@@ -15,7 +15,7 @@ export default function ProjectsSection({ entries, template, settings, highlight
   if (entries.length === 0) return null
 
   return (
-    <div style={{ marginBottom: '8px' }}>
+    <div style={{ margin: '10px 0 8px' }}>
       <SectionHeader label={ATS_SECTION_LABELS.projects} template={template} />
       {entries.map((proj, i) => (
         <div key={proj.id} style={{ marginBottom: i < entries.length - 1 ? '6px' : 0 }}>

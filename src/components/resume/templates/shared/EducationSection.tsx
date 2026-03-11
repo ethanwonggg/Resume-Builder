@@ -13,7 +13,7 @@ export default function EducationSection({ entries, template, settings }: Educat
   if (entries.length === 0) return null
 
   return (
-    <div style={{ marginBottom: '8px' }}>
+    <div style={{ margin: '10px 0 8px' }}>
       <SectionHeader label={ATS_SECTION_LABELS.education} template={template} />
       {entries.map((edu, i) => (
         <div key={edu.id} style={{ marginBottom: i < entries.length - 1 ? '6px' : 0 }}>

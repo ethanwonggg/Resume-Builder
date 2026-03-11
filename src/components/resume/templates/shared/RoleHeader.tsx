@@ -18,7 +18,7 @@ export default function RoleHeader({
   const tenure = current ? `${startDate} – Present` : `${startDate} – ${endDate}`
 
   return (
-    <div style={{ marginBottom: '2px' }}>
+    <div style={{ marginBottom: '4px' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
         <span style={{ fontSize: `${settings.fontSize}pt`, fontWeight: '700', color: template.bodyColor }}>
           {company || 'Company Name'}

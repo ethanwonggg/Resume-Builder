@@ -1,4 +1,5 @@
 import type { TemplateConfig } from '@/lib/design/tokens'
+import { RESUME_SPACING } from '@/lib/design/tokens'
 import type { BulletPoint, DesignSettings } from '@/types/resume'
 
 interface BulletListProps {
@@ -12,7 +13,7 @@ export default function BulletList({ bullets, template, settings, highlightIds }
   if (bullets.length === 0) return null
 
   return (
-    <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
+    <ul style={{ margin: 0, marginTop: '2px', padding: 0, listStyle: 'none' }}>
       {bullets.map(b => {
         const isHighlighted = highlightIds?.has(b.id)
         return (
@@ -20,7 +21,7 @@ export default function BulletList({ bullets, template, settings, highlightIds }
             fontSize: `${settings.fontSize}pt`,
             lineHeight: settings.lineSpacing,
             color: template.bodyColor,
-            marginBottom: '2px',
+            marginBottom: `${RESUME_SPACING.bulletGapPx}px`,
             paddingLeft: '14px',
             position: 'relative',
             // Highlight ring shown in editor mode only — never exported

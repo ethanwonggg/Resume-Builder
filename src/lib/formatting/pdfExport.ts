@@ -53,15 +53,23 @@ export async function exportToPDF(
     format: 'letter',
   })
 
+  // Maintain aspect ratio and scale the entire resume
+  // so it always fits cleanly on a single letter page.
   const imgWidth  = pdfWidth
   const imgHeight = (canvas.height / canvas.width) * imgWidth
 
-  let yPosition = 0
-  while (yPosition < imgHeight) {
-    if (yPosition > 0) pdf.addPage()
-    pdf.addImage(imgData, 'PNG', 0, -yPosition, imgWidth, imgHeight)
-    yPosition += pdfHeight
+  let renderWidth  = imgWidth
+  let renderHeight = imgHeight
+
+  if (renderHeight > pdfHeight) {
+    const scale = pdfHeight / renderHeight
+    renderWidth  = renderWidth * scale
+    renderHeight = pdfHeight
   }
+
+  const xOffset = (pdfWidth - renderWidth) / 2
+
+  pdf.addImage(imgData, 'PNG', xOffset, 0, renderWidth, renderHeight)
 
   pdf.save(filename)
 

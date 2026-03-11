@@ -16,7 +16,7 @@ export default function ExperienceSection({ entries, template, settings, highlig
   if (entries.length === 0) return null
 
   return (
-    <div style={{ marginBottom: '8px' }}>
+    <div style={{ margin: '10px 0 8px' }}>
       <SectionHeader label={ATS_SECTION_LABELS.experience} template={template} />
       {entries.map((exp, i) => (
         <div key={exp.id} style={{ marginBottom: i < entries.length - 1 ? '6px' : 0 }}>

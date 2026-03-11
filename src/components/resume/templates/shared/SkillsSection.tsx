@@ -21,7 +21,7 @@ export default function SkillsSection({ skills, template, settings }: SkillsSect
   if (rows.length === 0) return null
 
   return (
-    <div style={{ marginBottom: '8px' }}>
+    <div style={{ margin: '10px 0 8px' }}>
       <SectionHeader label={ATS_SECTION_LABELS.skills} template={template} />
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: `${settings.fontSize}pt` }}>
         <tbody>

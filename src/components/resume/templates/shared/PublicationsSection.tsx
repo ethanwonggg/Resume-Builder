@@ -13,7 +13,7 @@ export default function PublicationsSection({ entries, template, settings }: Pub
   if (entries.length === 0) return null
 
   return (
-    <div style={{ marginBottom: '8px' }}>
+    <div style={{ margin: '10px 0 8px' }}>
       <SectionHeader label={ATS_SECTION_LABELS.publications} template={template} />
       {entries.map(pub => (
         <div key={pub.id} style={{ marginBottom: '3px' }}>

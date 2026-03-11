@@ -35,7 +35,7 @@ export const RESUME_SPACING = {
   marginDefault: 0.65,
   marginMax: 0.75,
   sectionGapPx: 8,
-  bulletGapPx: 3,
+  bulletGapPx: 4,
 } as const
 
 export const FONT_OPTIONS = [

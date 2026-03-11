@@ -42,6 +42,7 @@ const DEFAULT_SETTINGS: DesignSettings = {
 
 interface ResumeStore {
   resume: ResumeData
+  setResume: (resume: ResumeData) => void
   settings: DesignSettings
   analysis: FullAnalysis | null
   activeSection: SectionKey | 'contact' | null
@@ -116,6 +117,8 @@ export const useResumeStore = create<ResumeStore>()(
       analysis: null,
       activeSection: 'contact',
       isRecruiterMode: false,
+
+      setResume: (resume) => set({ resume }),
 
       setContact: (contact) =>
         set(s => ({ resume: { ...s.resume, contact } })),

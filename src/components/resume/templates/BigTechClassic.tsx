@@ -18,16 +18,18 @@ export default function BigTechClassic({ resume, settings, template, marginPx, h
         namePt={20}
       />
 
-      {visibleSections.map(key => (
-        <SectionRouter
-          key={key}
-          sectionKey={key}
-          resume={resume}
-          template={template}
-          settings={settings}
-          highlightIds={highlightBulletIds}
-        />
-      ))}
+      <div style={{ marginTop: '16px' }}>
+        {visibleSections.map(key => (
+          <SectionRouter
+            key={key}
+            sectionKey={key}
+            resume={resume}
+            template={template}
+            settings={settings}
+            highlightIds={highlightBulletIds}
+          />
+        ))}
+      </div>
     </div>
   )
 }
